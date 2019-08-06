@@ -15,6 +15,7 @@
 - [46、全排列](https://github.com/keep-run/leetCode/blob/master/46.全排列.js)
 - [47、全排列-ii](https://github.com/keep-run/leetCode/blob/master/46.全排列-ii.js)
 - [53、最大子序和](https://github.com/keep-run/leetCode/blob/master/53.最大子序和.js)
+- [56、合并区间](https://github.com/keep-run/leetCode/blob/master/56.合并区间.js)
 - [58、最后一个单词的长度](https://github.com/keep-run/leetCode/blob/master/58.最后一个单词的长度.js)
 - [62、不同路径](https://github.com/keep-run/leetCode/blob/master/62.不同路径.js)
 - [63、不同路径-ii](https://github.com/keep-run/leetCode/blob/master/63.不同路径-ii.js)
