@@ -38,7 +38,7 @@
  * @param {number} target
  * @return {number[][]}
  */
-var fourSum = function (nums, target) {
+var fourSum1 = function (nums, target) {
     nums = nums.sort((a, b) => a - b)
     let res = []
     function backTrace(first, current) {
@@ -64,6 +64,39 @@ var fourSum = function (nums, target) {
     }
 
     backTrace(0, []);
+    return res
+};
+
+/** 两个for循环+两个指针 */
+var fourSum = function (nums, target) {
+    nums = nums.sort((a, b) => a - b)
+    let res = [], left, right, temp
+    for (let i = 0, len = nums.length; i < len; i++) {
+        if (i > 0 && nums[i] === nums[i - 1]) {
+            continue
+        }
+        for (let j = i + 1; j < len; j++) {
+            if (j > i + 1 && nums[j] === nums[j - 1]) {
+                continue
+            }
+            left = j + 1
+            right = len - 1
+            while (left < right) {
+                temp = nums[i] + nums[j] + nums[left] + nums[right]
+                if (temp === target) {
+                    res.push([nums[i], nums[j], nums[left], nums[right]])
+                    while (nums[left] === nums[left + 1]) {
+                        left++;
+                    }
+                    left++
+                } else if (temp > target) {
+                    right--
+                } else {
+                    left++
+                }
+            }
+        }
+    }
     return res
 };
 
