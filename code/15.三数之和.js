@@ -61,9 +61,7 @@ var threeSum = function (nums) {
                     k--
                 }
             }
-
         }
-
         i++;
         while(sortNum[i]===sortNum[i-1]){
             i++

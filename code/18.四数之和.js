@@ -62,7 +62,6 @@ var fourSum1 = function (nums, target) {
             }
         }
     }
-
     backTrace(0, []);
     return res
 };
