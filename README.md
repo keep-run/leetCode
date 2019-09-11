@@ -29,6 +29,7 @@
 - [77、组合](https://github.com/keep-run/leetCode/blob/master/code/77.组合.js)
 - [78、子集](https://github.com/keep-run/leetCode/blob/master/code/78.子集.js)
 - [80、删除排序数组的重复项-ii](https://github.com/keep-run/leetCode/blob/master/code/80.删除排序数组的重复项-ii.js)
+- [82、删除排序链表中的重复元素-ii](https://github.com/keep-run/leetCode/blob/master/code/82.删除排序链表中的重复元素-ii.js)
 - [83、删除排序链表中的重复元素](https://github.com/keep-run/leetCode/blob/master/code/83.删除排序链表中的重复元素.js)
 - [86、分隔链表](https://github.com/keep-run/leetCode/blob/master/code/86.分隔链表.js)
 - [88、合并两个有序数组](https://github.com/keep-run/leetCode/blob/master/code/88.合并两个有序数组.js)
