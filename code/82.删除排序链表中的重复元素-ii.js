@@ -38,15 +38,27 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var deleteDuplicates = function(head) {
-    let p=head
-    while(p&&p.next){
-        if(p.val===p.next.val){
-            p.next=p.next.next
-        }else{
-            p=p.next
+var deleteDuplicates = function (head) {
+    if (!head || !head.next) return head
+
+    const dummy = new ListNode(-1);
+    dummy.next = head;
+    let slow = dummy;
+    let fast = head;
+    while (fast) {
+        if (fast.next && fast.val != fast.next.val) {
+            if (slow.next == fast) {
+                slow = fast
+            } else {
+                slow.next = fast.next
+            }
         }
+        fast = fast.next
     }
-    return head
+    //处理最后几项有重复的情况
+    if (slow.next.next != fast) {
+        slow.next = fast
+    }
+    return dummy.next
 };
 
