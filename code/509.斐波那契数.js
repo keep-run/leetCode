@@ -65,8 +65,17 @@ var fib = function(N) {
     }else if(N===1){
         return 1
     }else{
+
         return fib(N-1)+fib(N-2)
     }
+};
+
+// 尾递归调用   f()
+var tailfib = function(N,n1=0,n2=1) {
+    if(N===0){
+        return n1
+    }
+    return fib(N-1,n2,n1+n2)
 };
 // @lc code=end
 
