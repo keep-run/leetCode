@@ -70,12 +70,28 @@ var fib = function(N) {
     }
 };
 
-// 尾递归调用   f()
+/* 尾递归调用 ，参数保留上一次调用的结果  
+比如：fib(3，fib(0),fib(1)) --> fib(2,fib(1),fib(2)) --> fib(1,fib(2),fib(3)-->fib(0,fib(3),fib(4)) */
 var tailfib = function(N,n1=0,n2=1) {
     if(N===0){
         return n1
     }
     return fib(N-1,n2,n1+n2)
+};
+
+/** 用for循环来实现 */
+ 
+var loopfib = function(N) {
+    let n1=0,n2=1,temp
+   if(N<2){
+       return N
+   }
+   for(let i=2;i<=N;i++){
+     temp=n1+n2 ;
+     n1=n2;
+     n2=temp; 
+   }
+   return n2
 };
 // @lc code=end
 
