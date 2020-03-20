@@ -64,8 +64,26 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isBalanced = function(root) {
-
+var isBalanced = function (root) {
+  // let l_deep = 0;
+  // let r_deep = 0;
+  let res = true
+  function helper(node) {
+    if (res) {
+      if (!node) {
+        return 0
+      } else {
+       let l_deep = helper(node.left)+1;
+       let  r_deep = helper(node.right)+1;
+        if (Math.abs(l_deep - r_deep) > 1) {
+          res = false
+        }
+        return Math.max(l_deep,r_deep)
+      }
+    }
+  }
+  helper(root)
+  return res
 };
 // @lc code=end
 
