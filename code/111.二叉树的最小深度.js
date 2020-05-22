@@ -45,7 +45,19 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var minDepth = function(root) {
+var minDepth = function (root) {
+  //空树
+  if (!root) {return 0 }
+  //只有根节点节点
+  if (!root.left&&!root.right) {return 1 }
+
+  //只有左子树
+  if(root.left&&!root.right){return 1+minDepth(root.left)}
+
+  //只有右子树
+  if(!root.left&&root.right){return 1+minDepth(root.right)}
+
+  return 1+Math.min(minDepth(root.left),minDepth(root.right))
 
 };
 // @lc code=end
