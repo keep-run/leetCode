@@ -59,21 +59,40 @@
 
 
 // ----------------循环法-----------------------
+// var postorderTraversal = function (root) {
+//   let res = [];
+//   let stack=[];
+//   let current=root
+//   while(stack.length>0||current){
+//     res.unshift(current.val)
+//     if(current.left){
+//       stack.push(current.left)
+//     }
+//     if(current.right){
+//       stack.push(current.right)
+//     }
+//     current=stack.pop()
+//   }
+//   return res
+// };
+
 var postorderTraversal = function (root) {
-  let res = [];
-  let stack=[];
-  let current=root
-  while(stack.length>0||current){
-    res.unshift(current.val)
-    if(current.left){
+  let result = [];
+  let stack = [];
+  let current = root;
+  while(current || stack.length > 0){
+    if(current){
+      result.unshift(current.val);
+    }
+    if(current.left) {
       stack.push(current.left)
     }
-    if(current.right){
+    if(current.right) {
       stack.push(current.right)
     }
-    current=stack.pop()
+    current = stack.pop();
   }
-  return res
+  return result
 };
 // @lc code=end
 

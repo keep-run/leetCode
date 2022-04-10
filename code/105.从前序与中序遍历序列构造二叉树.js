@@ -61,5 +61,23 @@ var buildTree = function (preorder, inorder) {
   }
   return helper(inorder)
 };
+
+
+
+// var buildTree = function (preorder, inorder) {
+
+//   function helper(subInOrder) {
+//     if (!subInOrder || subInOrder.length === 0) {
+//       return null
+//     }
+//     const temp = preorder.shift();
+//     const root = new TreeNode(temp);
+//     const inorderIndex = subInOrder.indexOf(temp);
+//     root.left = helper(subInOrder.slice(0, inorderIndex))
+//     root.right = helper(subInOrder.slice(inorderIndex + 1))
+//     return root;
+//   }
+//   return helper(inorder)
+// };
 // @lc code=end
 
