@@ -50,17 +50,15 @@
  * @return {boolean}
  */
 var isSymmetric = function (root) {
-    if (!root) { return true }
-    return judge(root.left, root.right)
+	function judge(p, q) {
+		if (!p && !q) {
+			return true
+		}
+		if ((!p && q) || (p && !q)) {
+			return false
+		}
+		return (p.val === q.val) && judge(p.left, q.right) && judge(p.right, q.left)
+	}
+	return judge(root, root)
 };
 
-var judge = function (p, q) {
-    if (!p && !q) {
-        return true
-    } else if (p && q && (p.val === q.val) && judge(p.right , q.left)&& judge(p.left, q.right) ) {
-        return true
-    } else {
-        return false
-    }
-
-}

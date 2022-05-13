@@ -36,18 +36,34 @@
  * @return {ListNode}
  */
 var reverseList = function (head) {
-    if(!head){
+    // if(!head){
+    //     return head
+    // }
+    // let p1 = null;
+    // let p2 = head.next;
+    // while (p2) {
+    //     head.next = p1;
+    //     p1 = head;
+    //     head = p2;
+    //     p2 = head.next
+    // }
+    // head.next=p1
+    // return head
+    if (!head) {
         return head
     }
-    let p1 = null;
-    let p2 = head.next;
-    while (p2) {
-        head.next = p1;
-        p1 = head;
-        head = p2;
-        p2 = head.next
+
+    let p_prev = null;
+    let p_curr = head;
+    let p_next = head.next;
+    while (p_curr) {
+        p_curr.next = p_prev;
+        p_prev = p_curr;
+        p_curr = p_next
+        if (p_next) {
+            p_next = p_next.next
+        }
     }
-    head.next=p1
-    return head
+    return p_prev;
 };
 

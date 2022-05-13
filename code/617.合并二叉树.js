@@ -55,18 +55,30 @@
  * @return {TreeNode}
  */
 var mergeTrees = function (t1, t2) {
-  function help( node1, node2) {
+  function help(node1, node2) {
     let newNode;
     if (!node1 && !node2) {
       newNode = null
     } else {
-      newNode=new TreeNode((node1 ? node1.val : null) +( node2 ? node2.val : null))
-      newNode.left = help( node1 ? node1.left : null, node2 ? node2.left : null)
-      newNode.right = help( node1 ? node1.right : null, node2 ? node2.right : null)
+      newNode = new TreeNode((node1 ? node1.val : null) + (node2 ? node2.val : null))
+      newNode.left = help(node1 ? node1.left : null, node2 ? node2.left : null)
+      newNode.right = help(node1 ? node1.right : null, node2 ? node2.right : null)
     }
     return newNode
   }
-  return help( t1, t2)
-};
+  // return help(t1, t2)
+
+  function merge(node1, node2) {
+    if (!node1 || !node2) {
+      return node1 || node2
+    }
+    node1.val = node1.val + node2.val;
+    node1.left = merge(node1.left, node2.left)
+    node1.right = merge(node1.right, node2.right)
+    return node1;
+  };
+  
+  return merge(t1, t2)
+}
 // @lc code=end
 

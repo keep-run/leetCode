@@ -41,7 +41,7 @@ var reverseBetween = function (head, m, n) {
     if (head.next == null || m === n) {
         return head
     }
-    let m_pre = null, pm = head, pn, temp_head = head, index = 1, res
+    let m_pre = null, n_next = null, pm = head, pn, temp_head = head, index = 1
     while (temp_head) {
         if (index == m - 1) {
             pm = temp_head.next
@@ -54,25 +54,50 @@ var reverseBetween = function (head, m, n) {
         temp_head = temp_head.next;
         index++
     }
-    return reverseList(pm, pn, m_pre, head)
-
-    
-};
-var reverseList = (pm, pn, m_pre,head) => {
-    let p1 = null, p2 = pm.next, temp = pm
-    while (pm !== pn) {
-        pm.next = p1;
-        p1 = pm;
-        pm = p2
-        p2 = p2.next;
-    }
-    temp.next = pm.next
-    pm.next = p1
+    n_next = pn.next;
+    reverseList(pm, pn)
+    pm.next = n_next;
     if (m_pre) {
-         m_pre.next = pn;
-     }else{
-         return  pm
-     }
-    return head
-}
+        m_pre.next = pn;
+        return head
+    } else {
+        return pn
+    }
+
+};
+
+
+var reverseList = function (p_start, p_end) {
+    if (!p_start) {
+        return p_start
+    }
+    let p_prev = null;
+    let p_curr = p_start;
+    let p_next = p_start.next;
+    while (p_curr !== p_end) {
+        p_curr.next = p_prev;
+        p_prev = p_curr;
+        p_curr = p_next;
+        p_next = p_next.next
+    }
+    p_end.next = p_prev
+};
+
+// var reverseList = (pm, pn, m_pre,head) => {
+//     let p1 = null, p2 = pm.next, temp = pm
+//     while (pm !== pn) {
+//         pm.next = p1;
+//         p1 = pm;
+//         pm = p2
+//         p2 = p2.next;
+//     }
+//     temp.next = pm.next
+//     pm.next = p1
+//     if (m_pre) {
+//          m_pre.next = pn;
+//      }else{
+//          return  pm
+//      }
+//     return head
+// }
 
