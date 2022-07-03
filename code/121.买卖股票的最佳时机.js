@@ -39,22 +39,34 @@
  * @param {number[]} prices
  * @return {number}
  */
-var maxProfit = function(prices) {
-    let len=prices.length;
-    if(len===0){
-        return 0
-    }
-    let max=0;minIndex=0,temp=0
-    for(let i=1;i<len;i++){
-        temp=prices[i]-prices[minIndex]
-      if(temp>max){
-          max=temp
-      }
-      if(prices[i]<prices[minIndex]){
-          minIndex=i
-      }
-    }
+// var maxProfit = function(prices) {
+//     let len=prices.length;
+//     if(len===0){
+//         return 0
+//     }
+//     let max=0;minIndex=0,temp=0
+//     for(let i=1;i<len;i++){
+//         temp=prices[i]-prices[minIndex]
+//       if(temp>max){
+//           max=temp
+//       }
+//       if(prices[i]<prices[minIndex]){
+//           minIndex=i
+//       }
+//     }
 
-    return max
-};
-
+//     return max
+// };
+var maxProfit = function (prices) {
+    let buyPrice = prices[0];
+    let profit = 0;
+    for (let item of prices) {
+        if (item - buyPrice > profit) {
+            profit = item - buyPrice
+        }
+        if (item < buyPrice) {
+            buyPrice = item;
+        }
+    }
+    return profit
+}

@@ -44,7 +44,25 @@
  * @param {number} sum
  * @return {boolean}
  */
-var hasPathSum = function(root, sum) {
-    
+var hasPathSum = function (root, sum) {
+  let res = false;
+  function help(node, prevSum) {
+    if (!node) {
+      return;
+    }
+    // 找到了目标叶子结点
+    if (!node.left && !node.right && prevSum + node.val === sum) {
+      res = true;
+      return
+    }
+    if (node.left) {
+      help(node.left, prevSum + node.val)
+    }
+    if (node.right) {
+      help(node.right, prevSum + node.val)
+    }
+  }
+  help(root, 0)
+  return res;
 };
 

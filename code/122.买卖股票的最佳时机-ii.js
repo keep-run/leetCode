@@ -50,19 +50,29 @@
  * 
  * 解题思路：贪心算法： 有收益就交易，比如[1,3,5] ,可以看成1 买入 3卖出，3买入，5卖出
  */
+// var maxProfit = function (prices) {
+//     let profit = 0;
+//     let len = prices.length;
+//     let temp = 0
+//     if (len < 2) { return 0 }
+//     for (let i = 1; i < len; i++) {
+//         temp = prices[i] - prices[i - 1]
+//         if (temp > 0) {
+//             profit += temp
+//         }
+//     }
+
+//     return profit
+
+// };
+
 var maxProfit = function (prices) {
     let profit = 0;
-    let len = prices.length;
-    let temp = 0
-    if (len < 2) { return 0 }
-    for (let i = 1; i < len; i++) {
-        temp = prices[i] - prices[i - 1]
-        if (temp > 0) {
-            profit += temp
+    for (let i = 1; i < prices.length; i++) {
+        if (prices[i] > prices[i - 1]) {
+            profit += (prices[i] - prices[i - 1])
         }
     }
-
     return profit
-
-};
+}
 
